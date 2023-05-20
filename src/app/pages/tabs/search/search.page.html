@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-searchbar
       animated="true"
-      debounce="800"
+      debounce="500"
       #searchInput
-      (ionChange)="onSearchChange($event)"></ion-searchbar>
+      (ionChange)="onSearchChange($event)"
+      (ionBlur)="onSearchBarBlur()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
   <app-loading-encurso *ngIf="isLoading"></app-loading-encurso>
-  <ion-list>
+
+  <app-emty-screen *ngIf="!isLoading && (enCursos?.length == 0 || query?.length == 0)" [model]="model"></app-emty-screen>
+
+  <ion-list *ngIf="!isLoading && enCursos.length > 0">
     <ion-list-header>
       <ion-label>
         <h4>Search result for "{{query}}"</h4>

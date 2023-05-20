@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { EncursoComponent } from './encurso/encurso.component';
 import { IonicModule } from '@ionic/angular';
 import { LoadingEncursoComponent } from './loading-encurso/loading-encurso.component';
-
+import { EmtyScreenComponent } from './emty-screen/emty-screen.component';
 
 
 @NgModule({
   declarations: [
     EncursoComponent,
-    LoadingEncursoComponent
+    LoadingEncursoComponent,
+    EmtyScreenComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +18,8 @@ import { LoadingEncursoComponent } from './loading-encurso/loading-encurso.compo
   ],
   exports: [
     EncursoComponent,
-    LoadingEncursoComponent
+    LoadingEncursoComponent,
+    EmtyScreenComponent
   ],
   entryComponents:[]
 })

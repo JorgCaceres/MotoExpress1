@@ -26,6 +26,7 @@ export class HomePage implements OnInit {
       ];
       this.enCursos = [
         {
+          uid: '12qwas',
           foto: 'assets/imgs/moto1.jpg',
           name: 'Bastian Pavez',
           direcciones: 'Las Hualtatas 8452, Las Condes',
@@ -33,6 +34,7 @@ export class HomePage implements OnInit {
           distancia: '4.3'
         },
         {
+          uid: '34qwas',
           foto: 'assets/imgs/moto2.png',
           name: 'Camilo Henrriquez',
           direcciones: 'Valenzuela Llanos 690. La Reina',

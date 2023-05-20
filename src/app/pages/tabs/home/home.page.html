@@ -21,7 +21,10 @@
       </ion-label>
     </ion-list-header>
     <ion-item-group  *ngIf="enCursos?.length > 0">
-        <app-encurso *ngFor="let encurso of enCursos" [encurso]="encurso"></app-encurso>
+        <app-encurso
+          *ngFor="let encurso of enCursos"
+          [encurso]="encurso"
+          [routerLink]="['/','tabs','enCursos',encurso.uid]"></app-encurso>
     </ion-item-group>
   </ion-list>
 

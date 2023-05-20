@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSearchbar } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-search',
@@ -7,12 +9,21 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class SearchPage implements OnInit {
 
+  @ViewChild('searchInput', { static: false })
+  searchInput!: IonSearchbar; // Agrega el operador '!' para indicar que la propiedad se asignará más tarde
+
   @ViewChild('searchInput') sInput: any;
+  model: any= {
+    icon: 'search-outline',
+    title: 'No hay Orden en curso record found'
+  };
+
+
   isLoading: boolean = false;
   query: any;
-
   allencurso: any[] = [
-  
+    
+
     {
       foto: 'assets/imgs/moto1.jpg',
       name: 'Bastian Pavez',
@@ -29,26 +40,37 @@ export class SearchPage implements OnInit {
       hora: '18:25',
       distancia: '2.3'
     }
+
   ];
 
-  enCursos: any[] =[];
+  enCursos: any[] = [];;
 
   constructor() { }
 
   ngOnInit() {
     setTimeout(() => {
       this.sInput.setFocus();
-    },500 );
+    }, 500);
+  }
+  onSearchBarBlur() {
+    // Restablecer el enfoque de la barra de búsqueda
+    this.searchInput.setFocus();
   }
 
-  onSearchChange(event: any){
+
+  async onSearchChange(event: any) {
     console.log(event.detail.value);
     this.query = event.detail.value.toLowerCase();
-    if(this.query.length > 0) {
-      this.enCursos = this.allencurso.filter((element: any)=> {
-        return element.short_name.include(this.query);
-      });
-      console.log(this.enCursos);
+    this.enCursos = [];
+    if (this.query.length > 0) {
+      this.isLoading = true;
+      setTimeout(async () => {
+        this.enCursos = await this.allencurso.filter((element: any) => {
+          return element.short_name.includes(this.query);
+        });
+        console.log(this.enCursos);
+        this.isLoading = false;
+      }, 1000);
     }
   }
 

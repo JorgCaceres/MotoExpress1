@@ -5,7 +5,7 @@ describe('SearchPage', () => {
   let component: SearchPage;
   let fixture: ComponentFixture<SearchPage>;
 
-  beforeEach(async(() => {
+  beforeEach(/* async */(() => {
     fixture = TestBed.createComponent(SearchPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
