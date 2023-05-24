@@ -17,12 +17,13 @@ export class HomePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
     this.isLoading = true;
     setTimeout(() => {
-
       this.banners = [
-        {banner: 'assets/imgs/1.png'}
+        { banner: 'assets/imgs/1.png' },
+        { banner: 'assets/imgs/2.png' }//cambiar imagen ,esta como ejemplo
+     /* {banner: 'assets/imgs/2.png'}
+        {banner: 'assets/imgs/2.png'} */
       ];
       this.enCursos = [
         {

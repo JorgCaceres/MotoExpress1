@@ -1,19 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-searchbar
-      animated="true"
-      debounce="500"
-      #searchInput
-      (ionChange)="onSearchChange($event)"
-      (ionBlur)="onSearchBarBlur()"></ion-searchbar>
+    <ion-searchbar animated="true" debounce="800" #searchInput (ionChange)="onSearchChange($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
 
   <app-loading-encurso *ngIf="isLoading"></app-loading-encurso>
 
-  <app-emty-screen *ngIf="!isLoading && (enCursos?.length == 0 || query?.length == 0)" [model]="model"></app-emty-screen>
+  <app-emty-screen *ngIf="!isLoading && (enCursos?.length == 0 || query?.length == 0)"
+    [model]="model"></app-emty-screen>
 
   <ion-list *ngIf="!isLoading && enCursos.length > 0">
     <ion-list-header>
@@ -21,7 +17,9 @@
         <h4>Search result for "{{query}}"</h4>
       </ion-label>
     </ion-list-header>
-    <app-encurso *ngFor="let encurso of enCursos"
-    [encurso]="encurso"></app-encurso>
+    <app-encurso *ngFor="let encurso of enCursos" 
+    [encurso]="encurso"
+    [routerLink]="['/','tabs','enCursos',encurso.uid]"></app-encurso>
   </ion-list>
+
 </ion-content>

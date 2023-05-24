@@ -32,7 +32,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'enCursos/:encursoid',
+    path: 'enCursos/:encursoId',
     loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule)
   },
 
