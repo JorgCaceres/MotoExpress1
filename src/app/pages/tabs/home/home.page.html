@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-  
-  <div *ngIf="isLoading"><ion-skeleton-text [animated]="true" style="height: 25vh;"></ion-skeleton-text></div>
+
+  <div *ngIf="isLoading"><ion-skeleton-text animated style="height: 25vh;"></ion-skeleton-text></div>
   <app-loading-encurso *ngIf="isLoading"></app-loading-encurso>
 
   <app-banner *ngIf="!isLoading" [bannerImages]="banners"></app-banner>
@@ -21,11 +21,10 @@
       <p>Revisa las ordenes en curso</p>
       </ion-label>
     </ion-list-header>
-    <ion-item-group  *ngIf="enCursos?.length > 0">
-        <app-encurso
-          *ngFor="let encurso of enCursos"
-          [encurso]="encurso"
-          [routerLink]="['/','tabs','enCursos',encurso.uid]"></app-encurso>
+    <ion-item-group  *ngIf="ordenEnCurso?.length > 0">
+        <app-encurso *ngFor="let encurso of ordenEnCurso"
+                     [encurso]="encurso"
+                     [routerLink]="['/', 'tabs', 'ordenEnCurso', encurso.uid]"></app-encurso>
     </ion-item-group>
   </ion-list>
 

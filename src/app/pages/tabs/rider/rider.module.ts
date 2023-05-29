@@ -4,20 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ItemsPageRoutingModule } from './items-routing.module';
+import { RiderPageRoutingModule } from './rider-routing.module';
 
-import { ItemsPage } from './items.page';
+import { RiderPage } from './rider.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { OrdenesComponent } from 'src/app/components/ordenes/ordenes.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ItemsPageRoutingModule,
+    RiderPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [ItemsPage, OrdenesComponent]
+  declarations: [RiderPage]
 })
-export class ItemsPageModule {}
+export class RiderPageModule {}

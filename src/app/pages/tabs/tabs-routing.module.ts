@@ -26,15 +26,20 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'tabs/home',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
-      },
+      }
     ]
   },
   {
-    path: 'enCursos/:encursoId',
+    path: 'ordenEnCurso/:encursoId',
     loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule)
   },
+  {
+    path: 'rider/:riderId',
+    loadChildren: () => import('./rider/rider.module').then( m => m.RiderPageModule)
+  },
+
 
   
 ];

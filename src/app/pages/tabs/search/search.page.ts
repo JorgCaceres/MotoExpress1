@@ -7,37 +7,43 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class SearchPage implements OnInit {
 
-
-
-  @ViewChild('searchInput') sInput: any;
-  model: any= {
+  @ViewChild('searchInput') sInput:any;
+  model: any = {
     icon: 'search-outline',
-    title: 'No se encontro la orden en curso'
+    title: 'Rider no encontrado'
   };
   isLoading: boolean = false;
   query: any;
-  allencurso: any[] = [
+  allriders: any[] = [
+  
     {
-      uid: '12qwas',
+      uid: 987654,
       foto: 'assets/imgs/moto1.jpg',
       name: 'Bastian Pavez',
       short_name: 'bastian pavez',
-      direcciones: 'Las Hualtatas 8452, Las Condes',
-      hora: '17:45',
-      distancia: '4.3'
+      sector: 'Nororiente',
+      disponibilidad: '18:00 - 23:00',
     },
     {
-      uid: '34qwas',
+      uid: 887654,
       foto: 'assets/imgs/moto2.png',
       name: 'Camilo Henrriquez',
       short_name: 'camilo henriquez',
-      direcciones: 'Valenzuela Llanos 690. La Reina',
+      sector: 'Centro',
       hora: '18:25',
       distancia: '2.3'
-    }
-
+    },
+    {
+      uid: 987654,
+      foto: 'assets/imgs/moto1.jpg',
+      name: 'Basilio Costa',
+      short_name: 'basilio costa',
+      sector: 'Suroriente',
+      disponibilidad: '18:00 - 23:00',
+    },
   ];
-  enCursos: any[] = [];;
+
+  findriders: any[] =[];
 
   constructor() { }
 
@@ -47,20 +53,21 @@ export class SearchPage implements OnInit {
     }, 500);
   }
 
-   async onSearchChange(event: any) {
+  async onSearchChange(event:any) {
     console.log(event.detail.value);
     this.query = event.detail.value.toLowerCase();
-    this.enCursos = [];
-    if (this.query.length > 0) {
+    this.findriders = [];
+    if(this.query.length > 0) {
       this.isLoading = true;
-      setTimeout(async () => {
-        this.enCursos = await this.allencurso.filter((element: any) => {
+      setTimeout(async() => {
+        this.findriders = await this.allriders.filter((element: any) => {
           return element.short_name.includes(this.query);
         });
-        console.log(this.enCursos);
+        console.log(this.findriders);
         this.isLoading = false;
-      }, 1500);
-    } 
+      }, 1000);
+    }
   }
 
 }
+

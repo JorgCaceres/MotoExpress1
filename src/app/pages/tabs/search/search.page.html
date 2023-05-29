@@ -1,25 +1,26 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-searchbar animated="true" debounce="800" #searchInput (ionChange)="onSearchChange($event)"></ion-searchbar>
+    <ion-searchbar
+      animated="true"
+      debounce="800"
+      #searchInput
+      (ionChange)="onSearchChange($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
 
   <app-loading-encurso *ngIf="isLoading"></app-loading-encurso>
+  <app-empty-screen *ngIf="!isLoading && (findriders?.length == 0 || query?.length == 0)" [model]="model"></app-empty-screen>
 
-  <app-emty-screen *ngIf="!isLoading && (enCursos?.length == 0 || query?.length == 0)"
-    [model]="model"></app-emty-screen>
-
-  <ion-list *ngIf="!isLoading && enCursos.length > 0">
+  <ion-list *ngIf="!isLoading && findriders.length > 0">
     <ion-list-header>
       <ion-label>
-        <h4>Search result for "{{query}}"</h4>
+        <h4>Resultado de la busqueda"{{query}}"</h4>
       </ion-label>
     </ion-list-header>
-    <app-encurso *ngFor="let encurso of enCursos" 
-    [encurso]="encurso"
-    [routerLink]="['/','tabs','enCursos',encurso.uid]"></app-encurso>
+    <app-riders *ngFor="let riders of findriders"
+    [riders]="riders"
+    [routerLink]="['/', 'tabs', 'rider', riders.uid]"></app-riders>
   </ion-list>
-
 </ion-content>

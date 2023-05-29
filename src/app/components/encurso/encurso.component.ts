@@ -15,12 +15,8 @@ export class EncursoComponent  implements OnInit {
 
   ngOnInit() {}
 
-  getDireccion(direccion: any[]){
-    return direccion.join(', , ');
+  getDireccion(direcciones:any) {
+    return direcciones.join(',');
   }
-
-  // goToSingle(){
-  //   this.singleEncurso.emit(this.encurso);
-  // }
 
 }
