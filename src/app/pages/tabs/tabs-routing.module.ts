@@ -32,13 +32,18 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'ordenEnCurso/:encursoId',
+    path: 'ordenEnCurso',
     loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule)
   },
   {
     path: 'rider/:riderId',
     loadChildren: () => import('./rider/rider.module').then( m => m.RiderPageModule)
   },
+  {
+    path: 'assign/:assingId',
+    loadChildren: () => import('./assign/assign.module').then( m => m.AssignPageModule)
+  },
+
 
 
   

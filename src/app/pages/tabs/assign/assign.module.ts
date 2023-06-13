@@ -4,20 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ItemsPageRoutingModule } from './items-routing.module';
+import { AssignPageRoutingModule } from './assign-routing.module';
 
-import { ItemsPage } from './items.page';
+import { AssignPage } from './assign.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ItemsPageRoutingModule,
+    AssignPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [ItemsPage]
+  declarations: [AssignPage]
 })
-export class ItemsPageModule {}
+export class AssignPageModule {}

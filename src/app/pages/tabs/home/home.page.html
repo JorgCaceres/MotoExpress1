@@ -12,9 +12,13 @@
   <div *ngIf="isLoading"><ion-skeleton-text animated style="height: 25vh;"></ion-skeleton-text></div>
   <app-loading-encurso *ngIf="isLoading"></app-loading-encurso>
 
-  <app-banner *ngIf="!isLoading" [bannerImages]="banners"></app-banner>
+  <app-banner *ngIf="!isLoading" [bannerImages]="ordenEnCurso"></app-banner>
   
   <ion-list *ngIf="!isLoading" >
+
+    <ion-label>
+      <ion-button [routerLink]= "['/', 'tabs', 'ordenEnCurso']">VER TODAS LAS ORDENES</ion-button>
+    </ion-label>
     <ion-list-header class="ion-margin-botom">
       <ion-label>
         <h4>En curso:</h4>
@@ -24,7 +28,8 @@
     <ion-item-group  *ngIf="ordenEnCurso?.length > 0">
         <app-encurso *ngFor="let encurso of ordenEnCurso"
                      [encurso]="encurso"
-                     [routerLink]="['/', 'tabs', 'ordenEnCurso', encurso.uid]"></app-encurso>
+                     [routerLink]= "['/', 'tabs', 'ordenEnCurso']"> ></app-encurso>
+                     <!-- [routerLink]="['/', 'tabs', 'ordenEnCurso', encurso.uid]"></app-encurso> -->
     </ion-item-group>
   </ion-list>
 

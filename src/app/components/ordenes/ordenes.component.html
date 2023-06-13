@@ -1,19 +1,18 @@
 <ion-item>
   <ion-thumbnail slot="start">
-    <img [src]="item?.cover ? item.cover : 'assets/imgs/1.jpg'" />
+    <img [src]="orden?.cover ? orden.cover : 'assets/imgs/1.jpg'" />
   </ion-thumbnail>
   <ion-label>
-    <!-- <h4>{{item?.name}}</h4> -->
-    {{item?.name_cliente}}
+    {{orden?.name_cliente}}
     <h6>Recogida:</h6>
-    <p class="ion-text-wrap">{{item?.dir_recogida}}</p>
+    <p class="ion-text-wrap">{{orden?.dir_recogida}}</p>
     <h6>Entrega:</h6>
-    <p class="ion-text-wrap">{{item?.dir_entrega}}</p>
-    <ion-text><p>{{item?.price | number: '0.2-2'}}</p></ion-text>
+    <p class="ion-text-wrap">{{orden?.dir_entrega}}</p>
   </ion-label>
   <ion-row>
     <ion-button>
-      <ion-text class="button">Asignar</ion-text>
+      <ion-text *ngIf="orden?.sin_asignar; else elseBlock" class="button">Asignar</ion-text>
+      <ng-template #elseBlock class="button">Ver Detalles</ng-template>
     </ion-button>
   </ion-row>
 </ion-item>

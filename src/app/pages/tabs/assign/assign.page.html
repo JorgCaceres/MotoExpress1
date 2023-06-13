@@ -1,0 +1,13 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title>items</ion-title> -->
+    <ion-buttons>
+      <ion-back-button defaultHref="/tabs/ordenEnCurso"></ion-back-button>
+    </ion-buttons>
+    <h3>Detalles de Orden</h3>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+   <app-order-details [data]="data" [isLoading]="isLoading"></app-order-details>
+</ion-content>
+

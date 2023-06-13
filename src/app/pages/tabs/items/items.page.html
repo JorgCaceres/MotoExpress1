@@ -24,28 +24,13 @@
     <ion-list-header>
       {{sector?.name+':'}}
     </ion-list-header>
-    <ng-container *ngFor="let item of items; let i = index">
-      <app-item 
-        *ngIf="sector.id == item.sector_id"
-        [item]="item"
-        [index]="i"
-        (add)="quantityPlus($event)"
-        (minus)="quantityMinus($event)">
-      </app-item>
+    <ng-container *ngFor="let orden of items;">
+      <app-orden 
+        *ngIf="sector.id == orden.sector_id"
+        [orden]="orden"
+      
+        [routerLink]="['/', 'tabs', 'assign', orden.uid]">
+      </app-orden>
     </ng-container>
   </ion-list>
 </ion-content>
-<ion-footer *ngIf="cartData?.totalItem > 0">
-  <ion-toolbar color="success">
-    <ion-label color="white">
-      <h4>{{cartData?.totalItem}} Item<span *ngIf="cartData?.totalItem > 1">s</span> | ₹{{cartData?.totalPrice}}</h4>
-      <ion-text color="light">
-        <p>Extra charges may apply</p>
-      </ion-text>
-    </ion-label>
-    <ion-button slot="end" fill="clear" color="white" (click)="viewCart()">
-      <ion-icon slot="end" name="basket-outline"></ion-icon>
-      VIEW CART
-    </ion-button>
-  </ion-toolbar>
-</ion-footer>
