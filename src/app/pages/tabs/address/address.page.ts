@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-// import { AddressService } from 'src/app/services/address/address.service';
+import { AddressService } from 'src/app/services/address/address.service';
 import { GlobalService } from 'src/app/services/global/global.service';
+
 
 @Component({
   selector: 'app-address',
@@ -11,7 +12,7 @@ import { GlobalService } from 'src/app/services/global/global.service';
 export class AddressPage implements OnInit, OnDestroy {
 
   isLoading: boolean = false;
-  addresses: any[] = [];
+  addresses: any = [];
   addressesSub: Subscription = new Subscription;
   model: any = {
     title: 'No Addresses added yet',
@@ -20,38 +21,38 @@ export class AddressPage implements OnInit, OnDestroy {
 
   constructor(
     private global: GlobalService,
-    // private addressService: AddressService
+    private addressService: AddressService
     ) { }
 
   ngOnInit() {
-    // this.addressesSub = this.addressService.addresses.subscribe(address => {
-    //   console.log('addresses: ', address);
-    //   if(address instanceof Array) {
-    //     this.addresses = address;
-    //   } else {
-    //     if(address?.delete) {
-    //       this.addresses = this.addresses.filter(x => x.id != address.id);
-    //     } else if(address?.update) {
-    //       const index = this.addresses.findIndex(x => x.id == address.id);
-    //       this.addresses[index] = address;
-    //     } else {
-    //       this.addresses = this.addresses.concat(address);
-    //     }
-    //   }
-    // });
-    // this.getAddresses();
+    this.addressesSub = this.addressService.addresses.subscribe(address => {
+      console.log('addresses: ', address);
+      if(address instanceof Array) {
+        this.addresses = address;
+      } else {
+        if(address?.delete) {
+          this.addresses = this.addresses.filter((x:any) => x.id != address.id);
+        } else if(address?.update) {
+          const index = this.addresses.findIndex((x:any) => x.id == address.id);
+          this.addresses[index] = address;
+        } else {
+          this.addresses = this.addresses.concat(address);
+        }
+      }
+    });
+    this.getAddresses();
   }
 
-  // async getAddresses() {    
-  //   this.isLoading = true;
-  //   this.global.showLoader();
-  //   setTimeout(async() => {
-  //     await this.addressService.getAddresses();
-  //     console.log(this.addresses);
-  //     this.isLoading = false;
-  //     this.global.hideLoader();
-  //   }, 3000);
-  // }
+  async getAddresses() {    
+    this.isLoading = true;
+    this.global.showLoader();
+    setTimeout(async() => {
+      await this.addressService.getAddresses();
+      console.log(this.addresses);
+      this.isLoading = false;
+      this.global.hideLoader();
+    }, 3000);
+  }
 
   getIcon(title:any) {
     return this.global.getIcon(title);
@@ -77,11 +78,11 @@ export class AddressPage implements OnInit, OnDestroy {
         },
         {
           text: 'Yes',
-          // handler: async () => {
-          //   this.global.showLoader();
-          //   await this.addressService.deleteAddress(address);
-          //   this.global.hideLoader();
-          // }
+          handler: async () => {
+            this.global.showLoader();
+            await this.addressService.deleteAddress(address);
+            this.global.hideLoader();
+          }
         }
       ]
     )
@@ -92,3 +93,9 @@ export class AddressPage implements OnInit, OnDestroy {
   }
 
 }
+
+
+
+
+
+

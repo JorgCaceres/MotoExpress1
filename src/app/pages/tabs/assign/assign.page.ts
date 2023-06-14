@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { NavController } from '@ionic/angular';
@@ -11,25 +11,25 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class AssignPage implements OnInit {
   @ViewChild('searchInput') sInput:any;
+  @Input() riders: any;
   
   id: any;
   data: any = {};
+  data2: any = {};
   items: any[] = [];
   ordenes:any [] = []
   allriders: any[] = []
   findriders: any[] =[];
-  veg: boolean = false;
   isLoading: boolean=false;
   cartData: any = {};
+  cartData2: any = {};
   storedData: any = {};
+  storedData2: any = {};
   query: any;
   model: any = {
     icon: 'search-outline',
     title: 'Rider no encontrado'
   };
-  
-  
-  
   
 
   constructor(
@@ -94,5 +94,7 @@ export class AssignPage implements OnInit {
       this.isLoading = false;
     }, 1500);
   }
+
 }
+
  

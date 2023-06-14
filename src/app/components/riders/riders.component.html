@@ -6,17 +6,13 @@
      <h4 >{{riders?.name}}</h4>
      <ion-text color="tertiary">
        <p class="pStyle2">
-        Horario: {{riders?.sector}}
+        Sector: {{riders?.sector}}
        </p>
        <p class="pStyle2">
         Disponibilidad: 
         {{riders?.disponibilidad}}
        </p>
      </ion-text>
-     <ion-text color="tertiary" *ngIf="riders?.distance && riders?.distance !=0">
-      <p class="distance">
-         Horario
-      </p>
-     </ion-text>
+     <!-- <input type="hidden" ng-model="record.usersId" value="{{riders.uid}}"/> -->
   </ion-label>
  </ion-item>

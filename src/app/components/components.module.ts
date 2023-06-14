@@ -7,6 +7,7 @@ import { RidersComponent } from './riders/riders.component';
 import { EmptyScreenComponent } from './empty-screen/empty-screen.component';
 import { OrdenesComponent } from './ordenes/ordenes.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { OrderCompleteComponent } from './order-complete/order-complete.component';
 
 
 
@@ -17,6 +18,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     RidersComponent,
     OrdenesComponent,
     OrderDetailsComponent,
+    OrderCompleteComponent,
     EmptyScreenComponent
     
   ],
@@ -30,6 +32,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     RidersComponent,
     OrdenesComponent,
     OrderDetailsComponent,
+    OrderCompleteComponent,
     EmptyScreenComponent
   ],
   entryComponents:[]

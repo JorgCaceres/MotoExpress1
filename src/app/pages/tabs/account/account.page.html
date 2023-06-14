@@ -37,12 +37,12 @@
       <ion-text class="ion-text-center" *ngIf="!orders || orders?.length == 0">
         <p>No Orders Placed Yet</p>
       </ion-text>
-      <!-- <app-orders 
+      <app-order-complete 
         *ngFor="let order of orders" 
         [order]="order"
-        (reorder)="reorder($event)"
+        
         (help)="getHelp($event)">
-      </app-orders> -->
+      </app-order-complete>
     </ion-list>
   </ng-container>
 

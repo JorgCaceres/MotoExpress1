@@ -14,7 +14,4 @@ export class OrderDetailsComponent  implements OnInit {
 
   ngOnInit() {}
 
-  getCuisine(cuisine: any) {
-    return cuisine.join(', ');
-  }
 }

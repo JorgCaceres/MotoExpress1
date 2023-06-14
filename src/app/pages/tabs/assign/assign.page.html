@@ -48,7 +48,9 @@
       </ion-list-header>
       <app-riders *ngFor="let riders of findriders"
       [riders]="riders"
-      [routerLink]="['/', 'tabs', 'rider', riders.uid]"></app-riders>
+      >
+    </app-riders>
+    <!-- <p>{{data2?.uid}}</p> -->
     </ion-list>
   </ng-template>
 </ion-content>
