@@ -77,35 +77,6 @@
       </ion-label>
     </ion-col>
   </ion-row>
-
-  <ion-item *ngIf="data?.sin_asignar; else elseBlock" lines="none" class="ion-padding-horizontal dashedBorderBottom">
-    <ion-thumbnail slot="start" class="rider-card">
-       <img [src]="data?.foto ? data.foto :'assets/imgs/moto1.jpg'" class="rider-card">
-    </ion-thumbnail>
-    <ion-label class="rider-card">
-       <h4 class="rider-card">Rider:</h4>
-       <ion-text class="rider-card" >
-         <p class="rider-card">
-          {{data?.name_rider}}
-         </p>
-       </ion-text >
-       <h4 class="rider-card">Telefono:</h4>
-       <p class="rider-card">
-        {{data?.telefono_rider}}
-       </p>
-    </ion-label>
-   </ion-item>
-  <ng-template #elseBlock>
-    <ion-toolbar class="barra">
-      <ion-searchbar
-        class="custom "
-        animated="true"
-        debounce="800"
-        #searchInput
-        placeholder="Selecciona rider a asignar"
-        ></ion-searchbar>
-    </ion-toolbar>
-  </ng-template>
 </ion-grid>
 
 

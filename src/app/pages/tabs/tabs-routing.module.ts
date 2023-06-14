@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'assign/:assingId',
     loadChildren: () => import('./assign/assign.module').then( m => m.AssignPageModule)
+  },  {
+    path: 'address',
+    loadChildren: () => import('./address/address.module').then( m => m.AddressPageModule)
   },
+
 
 
 

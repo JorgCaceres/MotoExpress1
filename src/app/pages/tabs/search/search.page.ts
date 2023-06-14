@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-search',
@@ -14,40 +15,16 @@ export class SearchPage implements OnInit {
   };
   isLoading: boolean = false;
   query: any;
-  allriders: any[] = [
-  
-    {
-      uid: 987654,
-      foto: 'assets/imgs/moto1.jpg',
-      name: 'Bastian Pavez',
-      short_name: 'bastian pavez',
-      sector: 'Nororiente',
-      disponibilidad: '18:00 - 23:00',
-    },
-    {
-      uid: 887654,
-      foto: 'assets/imgs/moto2.png',
-      name: 'Camilo Henrriquez',
-      short_name: 'camilo henriquez',
-      sector: 'Centro',
-      hora: '18:25',
-      distancia: '2.3'
-    },
-    {
-      uid: 987654,
-      foto: 'assets/imgs/moto1.jpg',
-      name: 'Basilio Costa',
-      short_name: 'basilio costa',
-      sector: 'Suroriente',
-      disponibilidad: '18:00 - 23:00',
-    },
-  ];
+  allriders: any[] = []
 
   findriders: any[] =[];
 
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ){}
 
   ngOnInit() {
+    this.allriders = this.api.allriders;
     setTimeout(() => {
       this.sInput.setFocus();
     }, 500);

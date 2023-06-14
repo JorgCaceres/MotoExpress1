@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { NavController } from '@ionic/angular';
@@ -10,20 +10,26 @@ import { ApiService } from 'src/app/services/api/api.service';
   styleUrls: ['./assign.page.scss'],
 })
 export class AssignPage implements OnInit {
-
+  @ViewChild('searchInput') sInput:any;
   
   id: any;
   data: any = {};
   items: any[] = [];
   ordenes:any [] = []
+  allriders: any[] = []
+  findriders: any[] =[];
   veg: boolean = false;
   isLoading: boolean=false;
   cartData: any = {};
   storedData: any = {};
-  model = {
-    icon: 'fast-food-outline',
-    title: 'No Menu Available'
+  query: any;
+  model: any = {
+    icon: 'search-outline',
+    title: 'Rider no encontrado'
   };
+  
+  
+  
   
 
   constructor(
@@ -35,6 +41,7 @@ export class AssignPage implements OnInit {
 
   ngOnInit() {
     this.ordenes = this.api.ordenes;
+    this.allriders = this.api.allriders;
     this.route.paramMap.subscribe(paramMap => {
       console.log('data: ', paramMap);
       if(!paramMap.has('assingId')) {
@@ -45,6 +52,22 @@ export class AssignPage implements OnInit {
       console.log('id: ', this.id);
       this.getItems();
     });
+  }
+
+  async onSearchChange(event:any) {
+    console.log(event.detail.value);
+    this.query = event.detail.value.toLowerCase();
+    this.findriders = [];
+    if(this.query.length > 0) {
+      this.isLoading = true;
+      setTimeout(async() => {
+        this.findriders = await this.allriders.filter((element: any) => {
+          return element.short_name.includes(this.query);
+        });
+        console.log(this.findriders);
+        this.isLoading = false;
+      }, 1000);
+    }
   }
 
   getCart() {

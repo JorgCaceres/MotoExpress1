@@ -15,3 +15,16 @@ h3{
    margin-right: 4rem;
    margin-left: 4rem;
 }
+ion-searchbar.custom{
+    --color: rgb(0, 47, 148);
+    --border-radius: 30px;
+    --icon-color:  rgb(0, 47, 148);
+    --placeholder-font-weight: bold;
+}
+
+.rider-card{
+    background-color: rgba(126, 192, 253, 0.116); ;
+}
+ion-toolbar.barra{
+    margin-top: 2.5rem;
+}

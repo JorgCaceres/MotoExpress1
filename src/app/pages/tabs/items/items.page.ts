@@ -36,6 +36,7 @@ export class ItemsPage implements OnInit {
     this.sectores = this.api.sectores;
     this.allItems = this.api.ordenes;
     this.items  = this.allItems; 
+    
     // this.route.paramMap.subscribe(paramMap =>{
     //   console.log('data: ' , paramMap);
     //   if(!paramMap.has('encursoId')) {

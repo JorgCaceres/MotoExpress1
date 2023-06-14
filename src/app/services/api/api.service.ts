@@ -60,7 +60,7 @@ export class ApiService {
       dir_entrega: ['Cuarto Centenario 90', 'Las Condes'],
       hora: '17:45',
       distancia: '4.3',
-      sin_asignar: false
+      sin_asignar: true
     },
     {
       id_orden: "98765431",
@@ -156,6 +156,34 @@ export class ApiService {
         uid: "8123456"
       },
     ];
+
+    allriders: any[] = [
+      {
+      uid: 987654,
+      foto: 'assets/imgs/moto1.jpg',
+      name: 'Bastian Pavez',
+      short_name: 'bastian pavez',
+      sector: 'Nororiente',
+      disponibilidad: '18:00 - 23:00',
+    },
+    {
+      uid: 887654,
+      foto: 'assets/imgs/moto2.png',
+      name: 'Camilo Henrriquez',
+      short_name: 'camilo henriquez',
+      sector: 'Centro',
+      hora: '18:25',
+      distancia: '2.3'
+    },
+    {
+      uid: 987654,
+      foto: 'assets/imgs/moto1.jpg',
+      name: 'Basilio Costa',
+      short_name: 'basilio costa',
+      sector: 'Suroriente',
+      disponibilidad: '18:00 - 23:00',
+    },
+  ];
 
   constructor() { }
 }
