@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Address } from 'src/app/models/address.model';
+import { Ordenes } from 'src/app/models/ordenes.model';
+import { Riders } from 'src/app/models/riders.model';
+import { Sectores } from 'src/app/models/sectores.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,42 +14,75 @@ export class ApiService {
     {banner: 'assets/imgs/1.png'}
   ];
 
-  ordenEnCurso = [
+  ordenEnCurso : Ordenes [] = [
     {
-      id_orden: '12345',
+      id_orden: "12345",
+      uid: '12wefdss',
+      sector_id: "s01",
+      cover: "assets/imgs/cliente1.png",
       foto: 'assets/imgs/moto1.jpg',
-      name: 'Bastian Pavez',
-      direcciones: ['Las Hualtatas 8452', 'Las Condes'],
+      name_rider: 'Bastian Pavez',
+      telefono_rider: '+56945789813',
+      name_cliente: 'Hugo Roldan',
+      telefono_cliente: '+56998765432',
+      dir_recogida: ['Las Carmelitas 240', 'Las Condes'],
+      dir_entrega: ['Cuarto Centenario 90', 'Las Condes'],
       hora: '17:45',
-      distancia: '4.3'
+      distancia: '4.3',
+      sin_asignar: true,
+      finalizado:false
     },
     {
-      id_orden: '22345',
-      foto: 'assets/imgs/moto2.png',
-      name: 'Camilo Henrriquez',
-      direcciones: ['Valenzuela Llanos 690', 'La Reina'],
-      hora: '18:25',
-      distancia: '2.3'
-    },
-    {
-      id_orden: '12345',
+      id_orden: "98765431",
+      sector_id: "s05",
+      cover: "assets/imgs/cliente2.png",
       foto: 'assets/imgs/moto1.jpg',
-      name: 'Bastian Pavez',
-      direcciones: ['Las Hualtatas 8452', 'Las Condes'],
-      hora: '17:45',
-      distancia: '4.3'
+      name_rider: 'Pablo Robles',
+      telefono_rider: '+56945789813',
+      name_cliente: 'Ignacio Caisedo',
+      telefono_cliente: '+56998765432',
+      dir_recogida: ['Rojas Magallanez 640', 'La Florida'],
+      dir_entrega: ['Diego Portales 456', 'Puente Alto'],
+      hora: '14:25',
+      distancia: '4.3',
+      sin_asignar: false,
+      finalizado:true
     },
     {
-      id_orden: '22345',
-      foto: 'assets/imgs/moto2.png',
-      name: 'Camilo Henrriquez',
-      direcciones: ['Valenzuela Llanos 690', 'La Reina'],
-      hora: '18:25',
-      distancia: '2.3'
+      id_orden: "456789",
+      sector_id: "s03",
+      cover: "assets/imgs/cliente2.png",
+      foto: 'assets/imgs/moto1.jpg',
+      name_rider: 'Felipe Barrios',
+      telefono_rider: '+56945789813',
+      name_cliente: 'Nicolas Cordova',
+      telefono_cliente: '+56998765432',
+      dir_recogida: ['Las Camelias 040', 'Santiago'],
+      dir_entrega: ['Ricardo Lyon 890', 'Providencia'],
+      hora: '14:25',
+      distancia: '4.3',
+      sin_asignar: true,
+      finalizado:false
+    },
+    {
+      id_orden: "654987",
+      sector_id: "s02",
+      cover: "assets/imgs/cliente2.png",
+      foto: 'assets/imgs/moto1.jpg',
+      name_rider: 'Andres Ramos',
+      telefono_rider: '+56945789813',
+      name_cliente: 'Jorge Caceres',
+      telefono_cliente: '+56998765432',
+      dir_recogida: ['Las Camelias 040', 'La Reina'],
+      dir_entrega: ['Ricardo Lyon 890', 'Peñalolen'],
+      hora: '14:25',
+      distancia: '4.3',
+      sin_asignar: true,
+      finalizado:false
     },
   ];
 
-  ordenes = [
+  ordenes: Ordenes [] = [
     {
       id_orden: "12345",
       uid: '12wefdss',
@@ -111,7 +148,7 @@ export class ApiService {
     },
   ];
 
-    sectores: any[] = [
+  sectores: Sectores[] = [
       {
         id: "s01",
         name: "Nororiente",
@@ -159,9 +196,9 @@ export class ApiService {
       },
     ];
 
-    allriders: any[] = [
+  allriders: Riders [] = [
       {
-      uid: 987654,
+      uid: '987654',
       foto: 'assets/imgs/moto1.jpg',
       name: 'Bastian Pavez',
       short_name: 'bastian pavez',
@@ -169,16 +206,15 @@ export class ApiService {
       disponibilidad: '18:00 - 23:00',
     },
     {
-      uid: 887654,
+      uid: '887654',
       foto: 'assets/imgs/moto2.png',
       name: 'Camilo Henrriquez',
       short_name: 'camilo henriquez',
       sector: 'Centro',
-      hora: '18:25',
-      distancia: '2.3'
+      disponibilidad: '12:30 - 16:40'
     },
     {
-      uid: 987654,
+      uid: '987654',
       foto: 'assets/imgs/moto1.jpg',
       name: 'Basilio Costa',
       short_name: 'basilio costa',
@@ -187,7 +223,7 @@ export class ApiService {
     },
   ];
 
-  addresses: any[] = [      
+  addresses: Address[] = [      
     {address: "Fancy Bazaar, India", house: "2nd Floor", id: "7Kox63KlggTvV7ebRKar", landmark: "Fancy Bazar", lat: 26.1830738, lng: 91.74049769999999, title: "Fancy", user_id: "1"},
     {address: "Kanuat palace, India", house: "Ground Floor", id: "8Kox63KlggTvV7ebRKar", landmark: "Bazar", lat: 26.1830738, lng: 91.74049769999999, title: "Work", user_id: "1"}
   ];

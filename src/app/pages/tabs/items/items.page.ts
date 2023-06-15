@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { NavController } from '@ionic/angular';
+import { Ordenes } from 'src/app/models/ordenes.model';
 import { ApiService } from 'src/app/services/api/api.service';
 //import { Preferences } from '@capacitor/preferences';
 
@@ -13,7 +14,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class ItemsPage implements OnInit {
 
   id: any;
-  data: any = {};
+  data: any = {} as Ordenes;
   items: any[] = [];
   assign: boolean = false;
   isLoading: boolean = false;
@@ -58,7 +59,7 @@ export class ItemsPage implements OnInit {
  
    async getItems() {
      this.isLoading = true;
-     this.data = {};
+     this.data = {} as Ordenes;
      this.cartData = {};
      this.storedData = {};
      setTimeout(async() => {      

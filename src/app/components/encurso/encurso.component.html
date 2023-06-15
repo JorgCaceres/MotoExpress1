@@ -3,13 +3,13 @@
      <img [src]="encurso?.foto ? encurso.foto :'assets/imgs/moto1.jpg' ">
   </ion-thumbnail>
   <ion-label>
-     <h4 >{{encurso?.name}}</h4>
+     <h4 >{{encurso?.name_rider}}</h4>
      <ion-text color="tertiary">
        <p class="pStyle2">
          Direccion de entrega: 
        </p>
       <p class="pStyle">
-        {{getDireccion(encurso?.direcciones)}}
+        {{getDireccion(encurso?.dir_recogida)}}
        </p>
      </ion-text>
      <p class="pStyle2">

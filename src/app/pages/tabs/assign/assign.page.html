@@ -12,18 +12,18 @@
 
    <ion-item *ngIf="data?.sin_asignar ==false; else elseBlock" lines="none" class="ion-padding-horizontal dashedBorderBottom">
     <ion-thumbnail slot="start" class="rider-card">
-       <img [src]="data?.foto ? data.foto :'assets/imgs/moto1.jpg'" class="rider-card">
+       <img [src]="data.foto ? data.foto :'assets/imgs/moto1.jpg'" class="rider-card">
     </ion-thumbnail>
     <ion-label class="rider-card">
        <h4 class="rider-card">Rider:</h4>
        <ion-text class="rider-card" >
          <h6 class="rider-card">
-          {{data?.name_rider}}
+          {{data.name_rider}}
          </h6>
        </ion-text >
        <h4 class="rider-card">Telefono:</h4>
        <p class="rider-card">
-        {{data?.telefono_rider}}
+        {{data.telefono_rider}}
        </p>
     </ion-label>
    </ion-item>

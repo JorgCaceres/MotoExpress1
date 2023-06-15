@@ -13,7 +13,7 @@
     <ion-spinner color="primary"></ion-spinner>
   </div>
 
-  <ion-list *ngIf="!isLoading && addresses?.length > 0">
+  <ion-list *ngIf="!isLoading && addresses.length > 0">
     <ion-item-divider>SAVED ADDRESSES</ion-item-divider>
     <ion-item-group class="ion-padding">
       <ion-item lines="full" class="ion-no-padding" *ngFor="let address of addresses">

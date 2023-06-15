@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Ordenes } from 'src/app/models/ordenes.model';
 import { ApiService } from 'src/app/services/api/api.service';
 
 
@@ -11,7 +12,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class HomePage implements OnInit {
 
   banners: any[] = [];
-  ordenEnCurso: any = [];
+  ordenEnCurso: Ordenes[] = [];
   isLoading: boolean = false;
 
   constructor(

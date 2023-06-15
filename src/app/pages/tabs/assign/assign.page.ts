@@ -2,6 +2,8 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { NavController } from '@ionic/angular';
+import { Ordenes } from 'src/app/models/ordenes.model';
+import { Riders } from 'src/app/models/riders.model';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
@@ -14,17 +16,14 @@ export class AssignPage implements OnInit {
   @Input() riders: any;
   
   id: any;
-  data: any = {};
-  data2: any = {};
+  data = {} as Ordenes;
   items: any[] = [];
-  ordenes:any [] = []
-  allriders: any[] = []
+  ordenes: Ordenes [] = [];
+  allriders: Riders [] = [];
   findriders: any[] =[];
   isLoading: boolean=false;
   cartData: any = {};
-  cartData2: any = {};
   storedData: any = {};
-  storedData2: any = {};
   query: any;
   model: any = {
     icon: 'search-outline',
@@ -76,7 +75,7 @@ export class AssignPage implements OnInit {
 
   async getItems() {
     this.isLoading = true;
-    this.data = {};
+    this.data = {} as Ordenes;
     this.cartData = {};
     this.storedData = {};
     setTimeout(async() => {      
